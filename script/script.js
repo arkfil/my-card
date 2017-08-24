@@ -21,6 +21,10 @@ var aboutMeDisplay;
 var contactDisplay;
 var worksDisplay;
 
+var first_column;
+var second_column;
+var third_column;
+
 document.addEventListener("DOMContentLoaded", () => {
   myContent=document.getElementsByClassName("main-content")[0];
   siteIcon1 = document.getElementsByClassName("small-img-1")[0];
@@ -44,11 +48,20 @@ document.addEventListener("DOMContentLoaded", () => {
   aboutMeDisplay = document.getElementsByClassName("about-me-display")[0];
   contactDisplay = document.getElementsByClassName("contact-display")[0];
   worksDisplay = document.getElementsByClassName("works-display")[0];
+
+  first_column = document.getElementsByClassName("first-column")[0];
+  second_column = document.getElementsByClassName("second-column")[0];
+  third_column = document.getElementsByClassName("third-column")[0];
+
+
   let KeyUpHandler= event=>{
     console.log(event);
     if(event.key == "Escape"){
       myWindow.style["-moz-transform"] = "translate(-50%,800px)";
       myWindow.style.transform = "translate(-50%,800px)";
+
+      windowCloseBtn.style["-moz-transform"]="translateY(-100px)scaleY(0)";
+      windowCloseBtn.style.transform="translateY(-100px)scaleY(0)";
 
       setTimeout(()=>{
         myContent.style["-moz-transform"]="scale(1)";
@@ -70,6 +83,11 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   };
 
+let windowEnterAnimation = () => {
+  console.log("now window is entering");
+}
+
+// my works click
   myWorksBtn.addEventListener('click',()=>{
     windowCloseBtn.style["-moz-transform"]="translateY(-100px)scaleY(0)";
     windowCloseBtn.style.transform="translateY(-100px)scaleY(0)";
@@ -80,6 +98,11 @@ document.addEventListener("DOMContentLoaded", () => {
     myContent.style["-moz-transform"]="scale(0)";
     myContent.style.transform="scale(0)";
 
+/**/
+    myWindow.style["-moz-transform"] = "translate(-50%,800px)";
+    myWindow.style.transform = "translate(-50%,800px)";
+/**/
+
     myWindow.style.display='block';
     myWindow.style["-moz-transition"]="all 1s cubic-bezier(0.24, 0.17, 0.74, 1.29)";
     myWindow.style.transition="all 1s cubic-bezier(0.24, 0.17, 0.74, 1.29)";
@@ -88,6 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
     contactDisplay.style.display='none';
     worksDisplay.style.display='block';
 
+    windowEnterAnimation();
     setTimeout(()=>{
 
       myWindow.style["-moz-transform"] = "translate(-50%,-50%)";
@@ -113,8 +137,20 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener('keyup',KeyUpHandler,false);
   });
 
+
+
+
   // About me click
   aboutMeBtn.addEventListener('click',()=>{
+    first_column.style["-moz-transition"]="none";
+    third_column.style.transition="none";
+
+    first_column.style["-moz-transform"] = 'translate(-1500px,0px)';
+    third_column.style["-moz-transform"] = 'translate(1500px,0px)';
+    first_column.style.transform = 'translate(-1500px,0px)';
+    third_column.style.transform = 'translate(1500px,0px)';
+
+
     worksDisplay.style.display='none';
     contactDisplay.style.display='none';
     aboutMeDisplay.style.display='block';
@@ -129,6 +165,11 @@ document.addEventListener("DOMContentLoaded", () => {
     myContent.style.transform="scale(0)";
 
     // const myWindow=document.getElementsByClassName("my-works-window");
+
+    /**/
+        myWindow.style["-moz-transform"] = "translate(-50%,800px)";
+        myWindow.style.transform = "translate(-50%,800px)";
+    /**/
 
     myWindow.style.display='block';
     myWindow.style["-moz-transition"]="all 1s cubic-bezier(0.24, 0.17, 0.74, 1.29)";
@@ -149,7 +190,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
       windowCloseBtn.style["-moz-transition"]="all 0.5s ease-in-out";
       windowCloseBtn.style.transition="all 0.5s ease-in-out";
-    },2000);
+    },1500);
+
+    setTimeout(()=>{
+      first_column.style.transition="all 0.5s ease-in-out";
+      third_column.style.transition="all 0.5s ease-in-out";
+
+      first_column.style["-moz-transition"]="all 0.7s ease-in-out";
+      third_column.style["-moz-transition"]="all 0.7s ease-in-out";
+
+
+      first_column.style["-moz-transform"] = 'translate(0px,0px)';
+      third_column.style["-moz-transform"] = 'translate(0px,0px)';
+      first_column.style.transform = 'translate(0px,0px)';
+      third_column.style.transform = 'translate(0px,0px)';
+    },750);
 
     window.addEventListener('keyup',KeyUpHandler,false);
   });
@@ -170,6 +225,12 @@ document.addEventListener("DOMContentLoaded", () => {
     myContent.style.transform="scale(0)";
 
     // const myWindow=document.getElementsByClassName("my-works-window");
+
+    /**/
+        myWindow.style["-moz-transform"] = "translate(-50%,800px)";
+        myWindow.style.transform = "translate(-50%,800px)";
+    /**/
+
     myWindow.style.display='block';
     myWindow.style["-moz-transition"]="all 1s cubic-bezier(0.24, 0.17, 0.74, 1.29)";
     myWindow.style.transition="all 1s cubic-bezier(0.24, 0.17, 0.74, 1.29)";
@@ -207,8 +268,13 @@ document.addEventListener("DOMContentLoaded", () => {
     myWindow.style.transform = "translate(-50%,"+(e.clientY-500)+"px)";
 
     if(e.clientY>=250 || e.clientY==0){
+
       myWindow.style["-moz-transform"] = "translate(-50%,800px)";
       myWindow.style.transform = "translate(-50%,800px)";
+
+      windowCloseBtn.style["-moz-transform"]="translateY(-100px)scaleY(0)";
+      windowCloseBtn.style.transform="translateY(-100px)scaleY(0)";
+
 
       setTimeout(()=>{
         myContent.style.display="block";
@@ -240,6 +306,11 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("over 250");
         myWindow.style["-moz-transform"] = "translate(-50%,800px)";
         myWindow.style.transform = "translate(-50%,800px)";
+
+
+        windowCloseBtn.style["-moz-transform"]="translateY(-100px)scaleY(0)";
+        windowCloseBtn.style.transform="translateY(-100px)scaleY(0)";
+
 
         setTimeout(()=>{
           myContent.style["-moz-transform"]="scale(1)";
@@ -459,5 +530,8 @@ document.addEventListener("DOMContentLoaded", () => {
     siteIcon2.style.border = "none";
     siteIcon3.style.border = "none";
   });
+
+//animate close button
+
 
 });
