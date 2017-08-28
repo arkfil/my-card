@@ -1,1 +1,972 @@
+/*@media screen and (min-width: 1px){
+div.about-me-display > div.about-me-container{
+  height: 100vh!important;
+}
+}*/
 
+@media screen and (max-width: 179px) {div.container{width: 100vw;}}
+
+
+@media screen and (min-width: 180px) and (max-width: 599px)  {
+  div.container{
+    width: 180px;
+  }
+
+  a.ass{
+    font-size: 17px;
+    font-weight: 900;
+  }
+  .hones{
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  div.links-package{
+    width: 150px;
+  }
+
+  div.my-profile-div{
+    width: 110px;
+    height: 40px;
+    right: 2px;
+    top:-5px;
+    border-radius: 0.5px;
+    padding: 0;
+
+  }
+  div.my-image{
+    width:20px;
+    height: 21px;
+
+  }
+  div.my-info-div{
+    float: right;
+    width: 70px;
+    height: auto;
+  }
+
+  p.my-cite{
+    /*width: 40%;*/
+    margin-top: 0;
+    padding: 0;
+    font-size: 6px;
+
+  }
+  div.proffesion{
+    font-size: 7px;
+    padding: 0;
+    margin: 0;
+  }
+  p.my-info{
+    font-size: 8px;
+
+  }
+  div.close-btn-div i.fa-chevron-down{
+    font-size: 18px;
+  }
+
+  div.close-btn-div{
+    height: 19px;
+  }
+
+  /*---Works--*/
+  div.works-display > div.works-display-top{
+    height: 70%;
+  }
+  div.works-display > div.works-display-bottom{
+    height: 30%;
+  }
+  div.big-img{
+    width: 160px;
+  }
+  div.small-img{
+    width: 35px;
+    margin: 0;
+    padding: 0;
+    border:none;
+    margin: 1px 0 0 1px;
+
+  }
+
+
+  /*---About Me--*/
+  div.about-me-container{
+    height: 180px;
+    width: 180px;
+
+    flex-wrap: wrap;
+    flex-direction:row;
+    overflow: scroll;
+  }
+  div.grid-cell{
+    width: 180px;
+    height: 280px;
+  }
+  i.fa-cogs,i.fa-graduation-cap{
+  font-size: 30px;
+  text-align: center;
+
+  }
+  img.about-me-picture{
+  height: 30px;
+
+  }
+  p.p-inner-text{
+  margin: 0;
+  line-height: 12px;
+  font-size: 11.5px;
+  }
+  /*---Contact--*/
+  p.contact-me-alert{
+    font-size: 8px;
+  }
+
+  div.contact-container{
+    /*top:21%;*/
+    height: 150px;
+    width: 180px;
+
+  }
+  a.submit-message{
+    position: fixed;
+    bottom: 17px;
+    left: 0;
+    padding: 1px 0 1px 0;
+    font-size: 8px;
+
+    width: 180px;
+  }
+  hr{
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;}
+  input.author{
+    font-size: 9px;
+    width: 180px;
+    height: auto;
+    padding: 1px;
+  }
+  textarea{
+    height: 60px;
+    font-size: 9px;
+    width: 180px;
+    padding: 1px;
+  }
+  p.author-p,p.message-p{
+    display: none;
+  }
+
+}
+@media screen and (min-width: 181px)  and (max-width: 239px) {
+  div.container{width: 100vw;}
+}
+
+
+@media screen and (min-width: 240px) and (max-width: 599px)  {
+div.container{
+  width: 240px;
+}
+
+.hones{
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+}
+hr{
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;}
+a.ass{
+  font-size: 22px;
+  font-weight: 900;
+}
+div.links-package{
+  width: 230px;
+}
+
+div.my-profile-div{
+  width: 190px;
+  height: 70px;
+  right: 5px;
+  top:-10px;
+  padding: 0;
+
+}
+div.my-image{
+  width:35px;
+  height: 36px;
+  background-position: center center;
+
+}
+div.my-info-div{
+  float: right;
+  width: 140px;
+  height: auto;
+}
+
+p.my-cite{
+  /*width: 40%;*/
+  margin-top: 0;
+  padding: 0;
+  font-size: 12.4px;
+
+}
+div.proffesion{
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+}
+p.my-info{
+  font-size: 13px;
+
+}
+div.close-btn-div i.fa-chevron-down{
+  font-size: 37px;
+}
+
+div.close-btn-div:hover{
+  color:#fff;
+}
+
+div.close-btn-div{
+  height: 33px;
+  color:red;
+  background-color: rgba(255,255,255,0.1);
+}
+
+/*---Works--*/
+div.big-img{
+  width: 220px;
+}
+div.small-img{
+  width: 30px;
+}
+div.works-display-bottom > div.small-img{
+  margin: 1px 0 0 1px;
+}
+
+
+/*---About Me--*/
+div.about-me-container{
+  height: 200px;
+  width: 220px;
+  flex-wrap: wrap;
+  flex-direction:row;
+  overflow: scroll;
+}
+div.grid-cell{
+  width: 220px;
+  height: 240px;
+  margin: 2px 0 2px 0;
+
+}
+i.fa-cogs,i.fa-graduation-cap{
+font-size: 45px;
+text-align: center;
+
+}
+img.about-me-picture{
+height: 45px;
+
+}
+p.p-inner-text{
+margin: 0;
+line-height: 12px;;
+font-size: 12px;
+
+}
+
+
+/*---Contact--*/
+p.contact-me-alert{
+  font-size: 10px;
+}
+
+div.contact-container{
+  /*top:21%;*/
+  height: 200px;
+  width: 220px;
+
+}
+a.submit-message{
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  padding: 1px 0 1px 0;
+  font-size: 14px;
+
+  width: 220px;
+}
+input.author{
+  font-size: 11px;
+  width: 220px;
+  height: auto;
+  border-radius: 0;
+  margin-bottom: 8px;
+}
+textarea{
+  height: 90px;
+  font-size: 11px;
+  width: 220px;
+  border-radius: 0;
+
+}
+p.author-p,p.message-p{
+  font-size: 16px;
+  display: none;
+
+}
+}
+
+@media screen and (min-width: 241px)  and (max-width: 319px) {
+  div.container{width: 100vw;}}
+
+@media screen and (min-width: 320px) and (max-width: 599px)  {
+  div.container{
+    width: 320px;
+  }
+
+  a.ass{
+    font-size: 26px;
+    font-weight: 900;
+  }
+  div.links-package{
+    width: 290px;
+  }
+
+  div.my-profile-div{
+    width: 195px;
+    height: 75px;
+    right: 5px;
+    top:0px;
+    border-radius: 1px;
+  }
+  div.my-image{
+    width:40px;
+    height: 45px;
+
+  }
+  div.my-info-div{
+    float: right;
+    width: 140px;
+    height: auto;
+  }
+
+  p.my-cite{
+    /*width: 40%;*/
+    margin-top: 0;
+    padding: 0;
+    font-size: 13.4px;
+
+  }
+  div.proffesion{
+    font-size: 13px;
+    padding: 0;
+    margin: 0;
+  }
+  p.my-info{
+    font-size: 15px;
+
+  }
+  div.close-btn-div i.fa-chevron-down{
+    font-size: 23px;
+  }
+
+  div.close-btn-div{
+    height: 25px;
+  }
+
+  /*---Works--*/
+  div.works-display > div.works-display-top{
+    height: 70%;
+  }
+  div.works-display > div.works-display-bottom{
+    height: 30%;
+  }
+  div.big-img{
+    width: 240px;
+  }
+  div.small-img{
+    width: 60px;
+    margin: 0;
+    padding: 0;
+    border:none;
+    margin: 1px 0 0 1px;
+
+  }
+  /*---About Me--*/
+  div.about-me-container{
+    height: 210px;
+    width: 300px;
+
+    flex-wrap: wrap;
+    flex-direction:row;
+    overflow: scroll;
+  }
+  div.grid-cell{
+    width: 300px;
+    height: 275px;
+  }
+  i.fa-cogs,i.fa-graduation-cap{
+  font-size: 65px;
+  text-align: center;
+
+  }
+  img.about-me-picture{
+  height: 65px;
+
+  }
+  p.p-inner-text{
+  margin: 0;
+  line-height: 16px;
+  font-size: 14.5px;
+  }
+  /*---Contact--*/
+  p.contact-me-alert{
+    font-size: 15px;
+  }
+
+  div.contact-container{
+    /*top:21%;*/
+    height: 210px;
+    width: 300px;
+
+  }
+  a.submit-message{
+    position: fixed;
+    bottom: 18px;
+    left: 0;
+    padding: 2px 0 2px 0;
+    font-size: 21px;
+
+    width: 300px;
+  }
+  input.author{
+    font-size: 12px;
+    width: 300px;
+    height: auto;
+    padding: 1px;
+  }
+  textarea{
+    height: 90px;
+    font-size: 12px;
+    width: 300px;
+    padding: 1px;
+  }
+  p.author-p,p.message-p{
+    font-size: 16px;
+  }
+
+}
+
+@media screen and (min-width: 321px)  and (max-width: 374px) {
+  div.container{width: 100vw;}}
+
+@media screen and (min-width: 375px) and (max-width: 599px)  {
+  div.container{
+    width: 375px;
+  }
+
+}
+@media screen and (min-width: 376px)  and (max-width: 424px) {
+  div.container{width: 100vw;}}
+
+@media screen and (min-width: 425px) and (max-width: 599px)  {
+  div.container{
+    width: 425px;
+  }
+
+    div.big-img{
+      width: 260px;
+    }
+    div.small-img{
+      width: 65px;
+      margin: 0;
+      padding: 0;
+      border:none;
+      margin: 1px 0 0 1px;
+
+    }
+
+
+    /*---About Me--*/
+    div.about-me-container{
+      height: 220px;
+      width: 390px;
+
+      flex-wrap: wrap;
+      flex-direction:row;
+      overflow: scroll;
+    }
+    div.grid-cell{
+      width: 390px;
+      height: 260px;
+    }
+    i.fa-cogs,i.fa-graduation-cap{
+    font-size: 70px;
+    text-align: center;
+
+    }
+    img.about-me-picture{
+    height: 70px;
+
+    }
+    p.p-inner-text{
+    margin: 0;
+    line-height: 16px;
+    font-size: 15.5px;
+    }
+    /*---Contact--*/
+    p.contact-me-alert{
+      font-size: 15px;
+    }
+
+    div.contact-container{
+      /*top:21%;*/
+      height: 210px;
+      width: 320px;
+
+    }
+    a.submit-message{
+      position: fixed;
+      bottom: 18px;
+      left: 0;
+      padding: 2px 0 2px 0;
+      font-size: 21px;
+
+      width: 320px;
+    }
+    input.author{
+      font-size: 12px;
+      width: 320px;
+      height: auto;
+      padding: 1px;
+    }
+    textarea{
+      height: 90px;
+      font-size: 12px;
+      width: 320px;
+      padding: 1px;
+    }
+    p.author-p,p.message-p{
+      font-size: 16px;
+    }
+}
+@media screen and (min-width: 426px) and (max-width:479px) {
+  div.container{width: 100vw;}}
+@media screen and (min-width: 480px) and (max-width: 599px)  {
+  div.container{
+    width: 480px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 599px) {
+  div.container{width: 100vw;}}
+
+@media screen and (min-width: 600px) {
+  div.container{
+    width: 600px;
+  }
+}
+
+@media screen and (min-width:601px) and (max-width: 639px) {
+  div.container{width: 100vw;}}
+
+@media screen and (min-width: 640px) and (max-width: 759px){
+  div.container{
+    /*640x360*/
+    width: 640px;
+  }
+
+    a.ass{
+      font-size: 32px;
+      font-weight: 900;
+    }
+    div.links-package{
+      width: 300px;
+    }
+
+    div.my-profile-div{
+      width: 230px;
+      height: 75px;
+      right: 10px;
+      top:0px;
+      border-radius: 1px;
+    }
+    div.my-image{
+      width:45px;
+      height: 46px;
+
+    }
+    div.my-info-div{
+      float: right;
+      width: 170px;
+      height: auto;
+    }
+
+    p.my-cite{
+      /*width: 40%;*/
+      margin-top: 0;
+      padding: 0;
+      font-size: 14.4px;
+
+    }
+    div.proffesion{
+      font-size: 14px;
+      padding: 0;
+      margin: 0;
+    }
+    p.my-info{
+      font-size: 17px;
+
+    }
+    div.close-btn-div i.fa-chevron-down{
+      font-size: 27px;
+    }
+
+    div.close-btn-div{
+      color:red;
+      background-color: rgba(255,255,255,0.1);
+      height: 28px;
+    }
+
+    /*---Works--*/
+    div.works-display > div.works-display-top{
+      height: 70%;
+    }
+    div.works-display > div.works-display-bottom{
+      height: 30%;
+    }
+    div.big-img{
+      width: 365px;
+    }
+    div.small-img{
+      width: 90px;
+      margin: 0;
+      padding: 0;
+      border:none;
+      margin: 1px 0 0 1px;
+
+    }
+    /*---About Me--*/
+    div.about-me-container{
+      height: 100vh;
+      width: 610px;
+
+      flex-wrap: wrap;
+      flex-direction:row;
+      overflow: scroll;
+    }
+    div.first-column,div.second-column,div.third-column{
+      margin-left: 0;
+    }
+    div.grid-cell{
+      width: 100%;
+      height: 300px;
+    }
+    i.fa-cogs,i.fa-graduation-cap{
+    font-size: 60px;
+    text-align: center;
+
+    }
+    img.about-me-picture{
+    height: 60px;
+
+    }
+    p.p-inner-text{
+    margin: 0;
+    line-height: 14px;
+    font-size: 13.5px;
+    }
+    /*---Contact--*/
+    p.contact-me-alert{
+      font-size: 20px;
+    }
+
+    div.contact-container{
+      /*top:21%;*/
+      height: 300px;
+      width: 500px;
+
+    }
+    a.submit-message{
+      position: fixed;
+      bottom: 15px;
+      left: 0;
+      padding: 3px 0 3px 0;
+      font-size: 21px;
+
+      width: 500px;
+    }
+    input.author{
+      font-size: 13px;
+      width: 500px;
+      height: auto;
+      border-radius: 1px;
+      padding: 2px;
+    }
+    textarea{
+      height: 115px;
+      font-size: 13px;
+      width: 500px;
+      padding: 2px;
+      border-radius: 1px;
+    }
+    p.author-p,p.message-p{
+      font-size: 15px;
+    }
+
+
+
+}
+
+@media screen and (min-width: 641px)  and (max-width: 759px) {
+  div.container{width: 100vw;}
+div.about-me-container{height: 100vh}
+
+}
+
+@media screen and (min-width: 760px) {
+  div.container{
+    width: 760px;
+  }
+}
+
+@media screen and (min-width: 761px) and (max-width: 767px) {
+  div.container{width: 100vw;}}
+
+@media screen and (min-width: 768px) and (max-width: 979px) {
+  div.container{
+    width: 768px;
+  }
+
+  /**/
+  a.ass{
+    font-size: 40px;
+    font-weight: 900;
+  }
+  div.links-package{
+    width: 340px;
+  }
+
+  div.my-profile-div{
+    width: 290px;
+    height: 85px;
+    right: 10px;
+    top:0px;
+    border-radius: 1px;
+  }
+  div.my-image{
+    width:45px;
+    height: 46px;
+
+  }
+  div.my-info-div{
+    float: right;
+    width: 230px;
+    height: auto;
+  }
+
+  p.my-cite{
+    /*width: 40%;*/
+    margin-top: 0;
+    padding: 0;
+    font-size: 16px;
+
+  }
+  div.proffesion{
+    font-size: 15px;
+    padding: 0;
+    margin: 0;
+  }
+  p.my-info{
+    font-size: 19px;
+
+  }
+  div.close-btn-div i.fa-chevron-down{
+    font-size: 35px;
+  }
+
+  div.close-btn-div{
+    color:red;
+    background-color: rgba(255,255,255,0.1);
+    height: 36px;
+  }
+
+  /*---Works--*/
+  div.works-display > div.works-display-top{
+    height: 70%;
+  }
+  div.works-display > div.works-display-bottom{
+    height: 30%;
+  }
+  div.big-img{
+    width: 445px;
+  }
+  div.small-img{
+    width: 110px;
+    margin: 0;
+    padding: 0;
+    border:none;
+    margin: 1px 0 0 1px;
+
+  }
+  /*---About Me--*/
+  div.about-me-container{
+    height: 100vh;
+    width: 610px;
+
+    /*flex-wrap: wrap;
+    flex-direction:row;
+    overflow: scroll;*/
+  }
+  div.first-column,div.second-column,div.third-column{
+    margin-left: 0;
+  }
+  div.grid-cell{
+    width: 30vw;
+    height: 100vh;
+  }
+  i.fa-cogs,i.fa-graduation-cap{
+  font-size: 70px;
+  text-align: center;
+
+  }
+  img.about-me-picture{
+  height: 70px;
+
+  }
+  p.p-inner-text{
+  margin: 0;
+  line-height: 16px;
+  font-size: 15.5px;
+  }
+  /*---Contact--*/
+  p.contact-me-alert{
+    font-size: 25px;
+  }
+
+  div.contact-container{
+    /*top:21%;*/
+    height: 90vh;
+    width: 550px;
+
+  }
+  a.submit-message{
+    position: fixed;
+    bottom: 10vh;
+    left: 0;
+    padding: 5px 0 5px 0;
+    font-size: 23px;
+
+    width: 550px;
+  }
+  input.author{
+    font-size: 16px;
+    width: 550px;
+    height: auto;
+    border-radius: 1px;
+    padding: 2px;
+  }
+  textarea{
+    height: 150px;
+    font-size: 16px;
+    width: 550px;
+    padding: 2px;
+    border-radius: 1px;
+  }
+  p.author-p,p.message-p{
+    font-size: 16px;
+  }
+
+
+}
+@media screen and (min-width: 769px) and (max-width: 979px) {
+  div.container{width: 100vw;}}
+
+@media screen and (min-width: 980px) {
+  div.container{
+    width: 980px;
+  }
+  div.my-profile-div{
+    width: 32vw;
+    height: 12vh;
+
+  }
+  div.my-info-div{
+    width: 25vw;
+
+  }
+  p.my-info{
+    font-size: 1.6vw;
+
+  }
+  div.proffesion{
+    font-size: 1.2vw;
+  }
+  p.my-cite{
+    font-size: 1.25vw;
+
+  }
+
+}
+
+@media screen and (min-width: 981px)  and (max-width: 1023px) {
+  div.container{width: 100vw;}}
+
+@media screen and (min-width: 1024px) {
+  div.container{
+    width: 1024px;
+  }
+}
+
+@media screen and (min-width: 1025px)  and (max-width: 1079px) {
+  div.container{width: 100vw;}}
+
+@media screen and (min-width: 1080px) {
+  div.container{
+    width: 1080px;
+  }
+}
+
+@media screen and (min-width: 1081px)  and (max-width: 1439px) {
+  div.container{width: 100vw;}}
+
+@media screen and (min-width: 1440px) {
+  div.container{
+    width: 1440px;
+  }
+
+  /*div.my-profile-div{
+    height: 19vh;
+  }*/
+
+}
+
+@media screen and (min-width: 1441px)  and (max-width: 1919px) {
+  div.container{width: 100vw;}}
+
+@media screen and (min-width: 1920px) {
+  div.container{
+    width: 1920px;
+  }
+}
+
+@media screen and (min-width: 1921px)  and (max-width: 2559px) {
+  div.container{width: 100vw;}}
+
+@media screen and (min-width: 2560px) {
+  div.container{
+    width: 2560px;
+  }
+}
+
+@media screen and (min-width: 2561px)  and (max-width: 4095px) {
+  div.container{width: 100vw;}}
+
+@media screen and (min-width: 4096px) {
+  div.container{
+    width: 4096px;
+  }
+}

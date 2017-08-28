@@ -1,29 +1,15 @@
-/*---Show window click--*/
-var myContent;
-var siteIcon1;
-var siteIcon2;
-var siteIcon3;
-var siteIcon4;
+let myContent,
+siteIcon1,siteIcon2,siteIcon3,siteIcon4,
+siteImage1,siteImage2,siteImage3,siteImage4,
+myWorksBtn,aboutMeBtn,contactMeBtn,
+myWindow,windowCloseBtn,
+aboutMeDisplay,contactDisplay,worksDisplay,
+first_column,second_column,third_column;
 
-var siteImage1;
-var siteImage2;
-var siteImage3;
-var siteImage4;
+window.addEventListener('load', function(e) {
+       setTimeout(function() { window.scrollTo(0, 1); }, 1);
+     }, false);
 
-var myWorksBtn;
-var aboutMeBtn;
-var contactMeBtn;
-
-var myWindow;
-var windowCloseBtn;
-
-var aboutMeDisplay;
-var contactDisplay;
-var worksDisplay;
-
-var first_column;
-var second_column;
-var third_column;
 
 document.addEventListener("DOMContentLoaded", () => {
   myContent=document.getElementsByClassName("main-content")[0];
@@ -53,12 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
   second_column = document.getElementsByClassName("second-column")[0];
   third_column = document.getElementsByClassName("third-column")[0];
 
-
   let KeyUpHandler= event=>{
-    console.log(event);
     if(event.key == "Escape"){
-      myWindow.style["-moz-transform"] = "translate(-50%,800px)";
-      myWindow.style.transform = "translate(-50%,800px)";
+      myWindow.style["-moz-transform"] = "translate(-50%,101vh)";
+      myWindow.style.transform = "translate(-50%,101vh)";
 
       windowCloseBtn.style["-moz-transform"]="translateY(-100px)scaleY(0)";
       windowCloseBtn.style.transform="translateY(-100px)scaleY(0)";
@@ -66,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(()=>{
         myContent.style["-moz-transform"]="scale(1)";
         myContent.style.transform="scale(1)";
-        myWindow.style.display="none";
+        // myWindow.style.display="none";
       },1000);
       windowCloseBtn.addEventListener('mousedown', mouseDown, false);
       window.removeEventListener('mouseup', mouseUp, false);
@@ -83,213 +67,195 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   };
 
-let windowEnterAnimation = () => {
-  console.log("now window is entering");
+let topButtonEnter=()=>{
+  windowCloseBtn.style["-moz-transform"]="translateY(-100px)scaleY(1)";
+  windowCloseBtn.style.transform="translateY(-100px)scaleY(1)";
+  setTimeout(()=>{
+    windowCloseBtn.style["-moz-transform"]="translateY(0)";
+    windowCloseBtn.style.transform="translateY(0)";
+    windowCloseBtn.style["-moz-transition"]="all 0.5s ease-in-out";
+    windowCloseBtn.style.transition="all 0.5s ease-in-out";
+  },1200);
+};
+
+/*---The way contents of window enter screen--*/
+let enterWorksContent = ()=>{
+  siteIcon1.style.border = "2px solid lightcoral";
+  siteIcon2.style.border = "none";
+  siteIcon3.style.border = "none";
+  siteIcon4.style.border = "none";
+  setTimeout(()=>{
+    siteImage1.style.display="block";
+  },1050);
+};
+let enterAboutMeContent = () => {
+  first_column.style["-moz-transition"]="none";
+  first_column.style.transition="none";
+
+  second_column.style["-moz-transition"]="none";
+  second_column.style.transition="none";
+
+  third_column.style.transition="none";
+  third_column.style["-moz-transition"]="none";
+
+  first_column.style["-moz-transform"] = 'translate(-1500px,0px)';
+  second_column.style["-moz-transform"] = 'scaleX(0)rotate3d(0,1,0,-90deg)';
+  third_column.style["-moz-transform"] = 'translate(1500px,0px)';
+  first_column.style.transform = 'translate(-1500px,0px)';
+  second_column.style.transform = 'scaleX(0)rotate3d(0,1,0,-90deg)';
+  second_column.style.opacity = '0.1';
+
+  third_column.style.transform = 'translate(1500px,0px)';
+
+  setTimeout(()=>{
+    first_column.style.transition="all 0.5s ease-in-out";
+    second_column.style.transition="all 1s ease-in-out";
+    third_column.style.transition="all 0.5s ease-in-out";
+
+    first_column.style["-moz-transition"]="all 0.7s ease-in-out";
+    second_column.style["-moz-transition"]="all 1s ease-in-out";
+    second_column.style.transitionDelay="0.5s";
+
+    second_column.style.opacity = '1';
+
+    third_column.style["-moz-transition"]="all 0.7s ease-in-out";
+
+    first_column.style["-moz-transform"] = 'translate(0px,0px)';
+    second_column.style["-moz-transform"] = 'scaleX(1)rotate3d(0,1,0,0deg)';
+    third_column.style["-moz-transform"] = 'translate(0px,0px)';
+    first_column.style.transform = 'translate(0px,0px)';
+    second_column.style.transform = 'scaleX(1)rotate3d(0,1,0,0deg)';
+    third_column.style.transform = 'translate(0px,0px)';
+  },750);
+}
+let enterContactContent=()=>{
+
 }
 
-// my works click
-  myWorksBtn.addEventListener('click',()=>{
-    windowCloseBtn.style["-moz-transform"]="translateY(-100px)scaleY(0)";
-    windowCloseBtn.style.transform="translateY(-100px)scaleY(0)";
+/*---The way window enters screen--*/
+let windowEnterAnimation = (enterButton,enterContent) => {
+    myWindow.style["-moz-transform"] = "translate(-50%,-50%)";
+    myWindow.style.transform = "translate(-50%,-50%)";
 
-    windowCloseBtn.style.transition="all 0.5s ease-in-out";
-    windowCloseBtn.style["-moz-transition"]="all 0.5s ease-in-out";
+    enterContent();
 
-    myContent.style["-moz-transform"]="scale(0)";
-    myContent.style.transform="scale(0)";
+    window.addEventListener('keyup',KeyUpHandler,false);
 
-/**/
-    myWindow.style["-moz-transform"] = "translate(-50%,800px)";
-    myWindow.style.transform = "translate(-50%,800px)";
-/**/
-
-    myWindow.style.display='block';
-    myWindow.style["-moz-transition"]="all 1s cubic-bezier(0.24, 0.17, 0.74, 1.29)";
-    myWindow.style.transition="all 1s cubic-bezier(0.24, 0.17, 0.74, 1.29)";
-
-    aboutMeDisplay.style.display='none';
-    contactDisplay.style.display='none';
-    worksDisplay.style.display='block';
-
-    windowEnterAnimation();
     setTimeout(()=>{
-
-      myWindow.style["-moz-transform"] = "translate(-50%,-50%)";
-      myWindow.style.transform = "translate(-50%,-50%)";
-
-      siteIcon1.style.border = "2px solid lightcoral";
-      siteIcon2.style.border = "none";
-      siteIcon3.style.border = "none";
-      siteIcon4.style.border = "none";
-    },10);
-    setTimeout(()=>{
+      enterButton();
       siteImage1.style.display="block";
-      windowCloseBtn.style["-moz-transform"]="translateY(-100px)scaleY(1)";
-      windowCloseBtn.style.transform="translateY(-100px)scaleY(1)";
-    },1050);
+    },700);
+};
 
-    setTimeout(()=>{
-      windowCloseBtn.style["-moz-transform"]="translateY(0)";
-      windowCloseBtn.style.transform="translateY(0)";
-      windowCloseBtn.style["-moz-transition"]="all 0.5s ease-in-out";
-      windowCloseBtn.style.transition="all 0.5s ease-in-out";
-    },2000);
-    window.addEventListener('keyup',KeyUpHandler,false);
+/*---Content of the window depends on button clicked on main screen--*/
+let displayWorks = enterAnimation => {
+  aboutMeDisplay.style.display='none';
+  contactDisplay.style.display='none';
+  worksDisplay.style.display='block';
+  enterAnimation(topButtonEnter,enterWorksContent);
+};
+let displayAboutMe = enterAnimation => {
+  aboutMeDisplay.style.display='block';
+  contactDisplay.style.display='none';
+  worksDisplay.style.display='none';
+  enterAnimation(topButtonEnter,enterAboutMeContent);
+};
+let displayContact = enterAnimation => {
+  aboutMeDisplay.style.display='none';
+  contactDisplay.style.display='block';
+  worksDisplay.style.display='none';
+  enterAnimation(topButtonEnter,enterContactContent);
+};
+
+/*---Some basic preparation before window is being opened--*/
+let prepareWindowToEnter = runDisplay =>{
+  windowCloseBtn.style["-moz-transform"]="translateY(-100px)scaleY(0)";
+  windowCloseBtn.style.transform="translateY(-100px)scaleY(0)";
+  windowCloseBtn.style.transition="all 0.5s ease-in-out";
+  windowCloseBtn.style["-moz-transition"]="all 0.5s ease-in-out";
+  myContent.style["-moz-transform"]="scale(0)";
+  myContent.style.transform="scale(0)";
+
+  myWindow.style["-moz-transform"] = "translate(-50%,900px)";
+  myWindow.style.transform = "translate(-50%,900px)";
+
+  myWindow.style["-moz-transition"]="all 1s cubic-bezier(0.24, 0.17, 0.74, 1.29)";
+  myWindow.style.transition="all 1s cubic-bezier(0.24, 0.17, 0.74, 1.29)";
+
+  runDisplay(windowEnterAnimation);
+};
+
+  // My works button click
+  myWorksBtn.addEventListener('click',()=>{
+    prepareWindowToEnter(displayWorks);
   });
 
-
-
-
-  // About me click
+  // About me button click
   aboutMeBtn.addEventListener('click',()=>{
-    first_column.style["-moz-transition"]="none";
-    third_column.style.transition="none";
-
-    first_column.style["-moz-transform"] = 'translate(-1500px,0px)';
-    third_column.style["-moz-transform"] = 'translate(1500px,0px)';
-    first_column.style.transform = 'translate(-1500px,0px)';
-    third_column.style.transform = 'translate(1500px,0px)';
-
-
-    worksDisplay.style.display='none';
-    contactDisplay.style.display='none';
-    aboutMeDisplay.style.display='block';
-
-    windowCloseBtn.style["-moz-transform"]="translateY(-100px)scaleY(0)";
-    windowCloseBtn.style.transform="translateY(-100px)scaleY(0)";
-    windowCloseBtn.style["-moz-transition"]="all 0.5s ease-in-out";
-
-    windowCloseBtn.style.transition="all 0.5s ease-in-out";
-
-    myContent.style["-moz-transform"]="scale(0)";
-    myContent.style.transform="scale(0)";
-
-    // const myWindow=document.getElementsByClassName("my-works-window");
-
-    /**/
-        myWindow.style["-moz-transform"] = "translate(-50%,800px)";
-        myWindow.style.transform = "translate(-50%,800px)";
-    /**/
-
-    myWindow.style.display='block';
-    myWindow.style["-moz-transition"]="all 1s cubic-bezier(0.24, 0.17, 0.74, 1.29)";
-    myWindow.style.transition="all 1s cubic-bezier(0.24, 0.17, 0.74, 1.29)";
-
-    setTimeout(()=>{
-      myWindow.style["-moz-transform"] = "translate(-50%,-50%)";
-      myWindow.style.transform = "translate(-50%,-50%)";
-    },10);
-    setTimeout(()=>{
-      windowCloseBtn.style["-moz-transform"]="translateY(-100px)scaleY(1)";
-      windowCloseBtn.style.transform="translateY(-100px)scaleY(1)";
-    },1050);
-
-    setTimeout(()=>{
-      windowCloseBtn.style["-moz-transform"]="translateY(0)";
-      windowCloseBtn.style.transform="translateY(0)";
-
-      windowCloseBtn.style["-moz-transition"]="all 0.5s ease-in-out";
-      windowCloseBtn.style.transition="all 0.5s ease-in-out";
-    },1500);
-
-    setTimeout(()=>{
-      first_column.style.transition="all 0.5s ease-in-out";
-      third_column.style.transition="all 0.5s ease-in-out";
-
-      first_column.style["-moz-transition"]="all 0.7s ease-in-out";
-      third_column.style["-moz-transition"]="all 0.7s ease-in-out";
-
-
-      first_column.style["-moz-transform"] = 'translate(0px,0px)';
-      third_column.style["-moz-transform"] = 'translate(0px,0px)';
-      first_column.style.transform = 'translate(0px,0px)';
-      third_column.style.transform = 'translate(0px,0px)';
-    },750);
-
-    window.addEventListener('keyup',KeyUpHandler,false);
+    prepareWindowToEnter(displayAboutMe);
   });
 
-  // Contact click
+  // Contact button click
   contactMeBtn.addEventListener('click',()=>{
-    aboutMeDisplay.style.display='none';
-    worksDisplay.style.display='none';
-    contactDisplay.style.display='block';
-
-    windowCloseBtn.style.transform="translateY(-100px)scaleY(0)";
-    windowCloseBtn.style["-moz-transform"]="translateY(-100px)scaleY(0)";
-
-    windowCloseBtn.style.transition="all 0.5s ease-in-out";
-    windowCloseBtn.style["-moz-transition"]="all 0.5s ease-in-out";
-
-    myContent.style["-moz-transform"]="scale(0)";
-    myContent.style.transform="scale(0)";
-
-    // const myWindow=document.getElementsByClassName("my-works-window");
-
-    /**/
-        myWindow.style["-moz-transform"] = "translate(-50%,800px)";
-        myWindow.style.transform = "translate(-50%,800px)";
-    /**/
-
-    myWindow.style.display='block';
-    myWindow.style["-moz-transition"]="all 1s cubic-bezier(0.24, 0.17, 0.74, 1.29)";
-    myWindow.style.transition="all 1s cubic-bezier(0.24, 0.17, 0.74, 1.29)";
-
-    setTimeout(()=>{
-      myWindow.style["-moz-transform"] = "translate(-50%,-50%)";
-      myWindow.style.transform = "translate(-50%,-50%)";
-
-    },10);
-    setTimeout(()=>{
-      windowCloseBtn.style["-moz-transform"]="translateY(-100px)scaleY(1)";
-      windowCloseBtn.style.transform="translateY(-100px)scaleY(1)";
-
-    },600);
-
-    setTimeout(()=>{
-      windowCloseBtn.style["-moz-transform"]="translateY(0)";
-      windowCloseBtn.style.transform="translateY(0)";
-      windowCloseBtn.style["-moz-transition"]="all 0.5s ease-in-out";
-      windowCloseBtn.style.transition="all 0.5s ease-in-out";
-
-    },1000);
-    window.addEventListener('keyup',KeyUpHandler,false);
-
+    prepareWindowToEnter(displayContact);
   });
-
 
   /*---Hide window click--*/
-  // let myWindow=document.getElementsByClassName("my-works-window");
   /*---Hide window mouse gesture--*/
+let divMove = e => {
+  myWindow.style["-moz-transform"] = "translate(-50%,"+(e.clientY-500)+"px)";
+  myWindow.style.transform = "translate(-50%,"+(e.clientY-500)+"px)";
 
+  if(e.clientY>=250 || e.clientY==0){
 
-  let divMove = e => {
-    myWindow.style["-moz-transform"] = "translate(-50%,"+(e.clientY-500)+"px)";
-    myWindow.style.transform = "translate(-50%,"+(e.clientY-500)+"px)";
+    myWindow.style["-moz-transform"] = "translate(-50%,101vh)";
+    myWindow.style.transform = "translate(-50%,101vh)";
 
-    if(e.clientY>=250 || e.clientY==0){
+    windowCloseBtn.style["-moz-transform"]="translateY(-100px)scaleY(0)";
+    windowCloseBtn.style.transform="translateY(-100px)scaleY(0)";
 
-      myWindow.style["-moz-transform"] = "translate(-50%,800px)";
-      myWindow.style.transform = "translate(-50%,800px)";
+    setTimeout(()=>{
+      myContent.style.display="block";
+      myContent.style["-moz-transform"]="scale(1)";
+      myContent.style.transform="scale(1)";
+
+    },1001);
+    windowCloseBtn.addEventListener('mousedown', mouseDown, false);
+    window.removeEventListener('mouseup', mouseUp, false);
+
+    myWindow.style["-moz-transition"] = "all 1s ease-in-out";
+    myWindow.style.transition = "all 1s ease-in-out";
+
+    window.removeEventListener('mousemove', divMove, true);
+    windowCloseBtn.addEventListener('mousedown', mouseDown, false);
+
+    setTimeout(()=>{
+      siteImage1.style.display="none";
+      siteImage2.style.display="none";
+      siteImage3.style.display="none";
+      siteImage4.style.display="none";
+    },1000);
+  }
+}
+
+let mouseUp = e => {
+    if(e.clientY>=150 || e.clientY<=70){
+      console.log("over 250");
+      myWindow.style["-moz-transform"] = "translate(-50%,101vh)";
+      myWindow.style.transform = "translate(-50%,101vh)";
 
       windowCloseBtn.style["-moz-transform"]="translateY(-100px)scaleY(0)";
       windowCloseBtn.style.transform="translateY(-100px)scaleY(0)";
 
-
       setTimeout(()=>{
-        myContent.style.display="block";
         myContent.style["-moz-transform"]="scale(1)";
         myContent.style.transform="scale(1)";
-
-      },1001);
+        // myWindow.style.display="none";
+      },1000);
       windowCloseBtn.addEventListener('mousedown', mouseDown, false);
       window.removeEventListener('mouseup', mouseUp, false);
-
       myWindow.style["-moz-transition"] = "all 1s ease-in-out";
       myWindow.style.transition = "all 1s ease-in-out";
-
-      window.removeEventListener('mousemove', divMove, true);
-      windowCloseBtn.addEventListener('mousedown', mouseDown, false);
 
       setTimeout(()=>{
         siteImage1.style.display="none";
@@ -297,241 +263,233 @@ let windowEnterAnimation = () => {
         siteImage3.style.display="none";
         siteImage4.style.display="none";
       },1000);
+    }else{
+      myWindow.style["-moz-transform"] = "translate(-50%,-50%)";
+      myWindow.style.transform = "translate(-50%,-50%)";
+
+      console.log("under 250");
+      myWindow.style["-moz-transition"] = "all 1s ease-in-out";
+      myWindow.style.transition = "all 1s ease-in-out";
+
+      setTimeout(()=>{
+        myWindow.style["-moz-transition"] = "all 0.020s linear";
+        myWindow.style.transition = "all 0.020s linear";
+      },100);
     }
-  }
-
-  let mouseUp = e => {
-      // console.log(e.clientY);
-      if(e.clientY>=150 || e.clientY<=70){
-        console.log("over 250");
-        myWindow.style["-moz-transform"] = "translate(-50%,800px)";
-        myWindow.style.transform = "translate(-50%,800px)";
-
-
-        windowCloseBtn.style["-moz-transform"]="translateY(-100px)scaleY(0)";
-        windowCloseBtn.style.transform="translateY(-100px)scaleY(0)";
-
-
-        setTimeout(()=>{
-          myContent.style["-moz-transform"]="scale(1)";
-          myContent.style.transform="scale(1)";
-          myWindow.style.display="none";
-        },1000);
-        windowCloseBtn.addEventListener('mousedown', mouseDown, false);
-        window.removeEventListener('mouseup', mouseUp, false);
-        myWindow.style["-moz-transition"] = "all 1s ease-in-out";
-        myWindow.style.transition = "all 1s ease-in-out";
-
-        setTimeout(()=>{
-          siteImage1.style.display="none";
-          siteImage2.style.display="none";
-          siteImage3.style.display="none";
-          siteImage4.style.display="none";
-        },1000);
-      }else{
-        myWindow.style["-moz-transform"] = "translate(-50%,-50%)";
-        myWindow.style.transform = "translate(-50%,-50%)";
-
-        console.log("under 250");
-        myWindow.style["-moz-transition"] = "all 1s ease-in-out";
-        myWindow.style.transition = "all 1s ease-in-out";
-
-        setTimeout(()=>{
-          myWindow.style["-moz-transition"] = "all 0.020s linear";
-          myWindow.style.transition = "all 0.020s linear";
-        },100);
-      }
-      window.removeEventListener('mousemove', divMove, true);
-      windowCloseBtn.addEventListener('mousedown', mouseDown, false);
-  }
-  let mouseDown = e => {
-    myWindow.style.transition = "all 0.020s linear";
-    myWindow.style["-moz-transition"] = "all 0.020s linear";
-
-
-    window.addEventListener('mousemove', divMove, true);
-    window.addEventListener('mouseup', mouseUp, false);
-    windowCloseBtn.removeEventListener('mousedown', mouseDown, false);
-  }
-
-  let addListeners= () => {
+    window.removeEventListener('mousemove', divMove, true);
     windowCloseBtn.addEventListener('mousedown', mouseDown, false);
-  };
-  addListeners();
+}
+let mouseDown = e => {
+  myWindow.style.transition = "all 0.020s linear";
+  myWindow.style["-moz-transition"] = "all 0.020s linear";
 
-  /*---End of dragable--*/
+  window.addEventListener('mousemove', divMove, true);
+  window.addEventListener('mouseup', mouseUp, false);
+  windowCloseBtn.removeEventListener('mousedown', mouseDown, false);
+}
 
-  /*---behaviour - on change picture event--*/
+let addListeners= () => {
+  windowCloseBtn.addEventListener('mousedown', mouseDown, false);
+};
 
-  siteIcon1.addEventListener('click',event=>{
-    siteIcon1.style.pointerEvents = "none";
-    siteIcon2.style.pointerEvents = "none";
-    siteIcon3.style.pointerEvents = "none";
-    siteIcon4.style.pointerEvents = "none";
+addListeners();
 
-    siteImage2.style.transform="translateY(1900px)rotate(30deg)";
-    siteImage3.style.transform="translateY(1900px)rotate(30deg)";
-    siteImage4.style.transform="translateY(1900px)rotate(30deg)";
-    siteImage2.style.zIndex= '-1';
-    siteImage3.style.zIndex= '-1';
-    siteImage4.style.zIndex= '-1';
+/*---Behaviour - on change picture event--*/
+let turnOffPointerEvents = () => {
+  siteIcon1.style.pointerEvents = "none";
+  siteIcon2.style.pointerEvents = "none";
+  siteIcon3.style.pointerEvents = "none";
+  siteIcon4.style.pointerEvents = "none";
+};
+let turnOnPointerEvents = () => {
+  siteIcon1.style.pointerEvents = "auto";
+  siteIcon2.style.pointerEvents = "auto";
+  siteIcon3.style.pointerEvents = "auto";
+  siteIcon4.style.pointerEvents = "auto";
+};
 
-    setTimeout(()=>{
-      siteImage1.style.display="block";
+siteIcon1.addEventListener('click',event=>{
+  turnOffPointerEvents();
 
-      siteImage2.style.transform="translateY(0)rotate(0)";
-      siteImage3.style.transform="translateY(0)rotate(0)";
-      siteImage4.style.transform="translateY(0)rotate(0)";
+  siteImage2.style.animationDuration="0s";
+  siteImage3.style.animationDuration="0s";
+  siteImage4.style.animationDuration="0s";
 
-      siteImage2.style.display="none";
-      siteImage3.style.display="none";
-      siteImage4.style.display="none";
-      // siteImage1.style.zIndex= '2';
-      siteImage2.style.zIndex= '2';
-      siteImage3.style.zIndex= '2';
-      siteImage4.style.zIndex= '2';
+  siteImage2.style.transform="translate(-50%,350%)rotate(30deg)";
+  siteImage3.style.transform="translate(-50%,350%)rotate(30deg)";
+  siteImage4.style.transform="translate(-50%,350%)rotate(30deg)";
+  siteImage2.style.zIndex= '-1';
+  siteImage3.style.zIndex= '-1';
+  siteImage4.style.zIndex= '-1';
 
-      setTimeout(()=>{
-        siteIcon1.style.pointerEvents = "auto";
-        siteIcon2.style.pointerEvents = "auto";
-        siteIcon3.style.pointerEvents = "auto";
-        siteIcon4.style.pointerEvents = "auto";
-      },1650)
+  setTimeout(()=>{
+    siteImage1.style.display="block";
 
-    },850);
-
-    siteIcon1.style.border = "2px solid lightcoral";
-    siteIcon2.style.border = "none";
-    siteIcon3.style.border = "none";
-    siteIcon4.style.border = "none";
-  });
-
-  siteIcon2.addEventListener('click',event=>{
-    siteIcon1.style.pointerEvents = "none";
-    siteIcon2.style.pointerEvents = "none";
-    siteIcon3.style.pointerEvents = "none";
-    siteIcon4.style.pointerEvents = "none";
-
-    siteImage1.style.transform="translateY(1900px)rotate(30deg)";
-    siteImage3.style.transform="translateY(1900px)rotate(30deg)";
-    siteImage4.style.transform="translateY(1900px)rotate(30deg)";
-    siteImage1.style.zIndex= '-1';
-    siteImage3.style.zIndex= '-1';
-    siteImage4.style.zIndex= '-1';
+    siteImage2.style.zIndex= '2';
+    siteImage3.style.zIndex= '2';
+    siteImage4.style.zIndex= '2';
 
     setTimeout(()=>{
-      siteImage2.style.display="block";
+      turnOnPointerEvents();
+    },1700);
+  },850);
 
-      siteImage1.style.transform="translateY(0)rotate(0)";
-      siteImage3.style.transform="translateY(0)rotate(0)";
-      siteImage4.style.transform="translateY(0)rotate(0)";
+  setTimeout(()=>{
+    siteImage2.style.display="none";
+    siteImage3.style.display="none";
+    siteImage4.style.display="none";
+    siteImage2.style.transform="translate(-50%,-50%)rotate(0)";
+    siteImage3.style.transform="translate(-50%,-50%)rotate(0)";
+    siteImage4.style.transform="translate(-50%,-50%)rotate(0)";
 
-      siteImage1.style.display="none";
-      siteImage3.style.display="none";
-      siteImage4.style.display="none";
-      // siteImage1.style.zIndex= '2';
-      siteImage1.style.zIndex= '2';
-      siteImage3.style.zIndex= '2';
-      siteImage4.style.zIndex= '2';
+    siteImage2.style.animationDuration="1.7s";
+    siteImage3.style.animationDuration="1.7s";
+    siteImage4.style.animationDuration="1.7s";
 
-      setTimeout(()=>{
-        siteIcon1.style.pointerEvents = "auto";
-        siteIcon2.style.pointerEvents = "auto";
-        siteIcon3.style.pointerEvents = "auto";
-        siteIcon4.style.pointerEvents = "auto";
-      },1650)
-    },850);
+  },1600);
 
-    siteIcon2.style.border = "2px solid lightcoral";
-    siteIcon1.style.border = "none";
-    siteIcon3.style.border = "none";
-    siteIcon4.style.border = "none";
-  });
+  siteIcon1.style.border = "2px solid lightcoral";
+  siteIcon2.style.border = "none";
+  siteIcon3.style.border = "none";
+  siteIcon4.style.border = "none";
+});
 
-  siteIcon3.addEventListener('click',event=>{
-    siteIcon1.style.pointerEvents = "none";
-    siteIcon2.style.pointerEvents = "none";
-    siteIcon3.style.pointerEvents = "none";
-    siteIcon4.style.pointerEvents = "none";
+siteIcon2.addEventListener('click',event=>{
+  turnOffPointerEvents();
 
-    siteImage1.style.transform="translateY(1900px)rotate(30deg)";
-    siteImage2.style.transform="translateY(1900px)rotate(30deg)";
-    siteImage4.style.transform="translateY(1900px)rotate(30deg)";
-    siteImage1.style.zIndex= '-1';
-    siteImage2.style.zIndex= '-1';
-    siteImage4.style.zIndex= '-1';
+  siteImage1.style.animationDuration="0s";
+  siteImage3.style.animationDuration="0s";
+  siteImage4.style.animationDuration="0s";
+
+  siteImage1.style.transform="translate(-50%,350%)rotate(30deg)";
+  siteImage3.style.transform="translate(-50%,350%)rotate(30deg)";
+  siteImage4.style.transform="translate(-50%,350%)rotate(30deg)";
+  siteImage1.style.zIndex= '-1';
+  siteImage3.style.zIndex= '-1';
+  siteImage4.style.zIndex= '-1';
+
+  setTimeout(()=>{
+    siteImage2.style.display="block";
+
+    siteImage1.style.zIndex= '2';
+    siteImage3.style.zIndex= '2';
+    siteImage4.style.zIndex= '2';
+    setTimeout(()=>{
+      turnOnPointerEvents();
+    },1700);
+  },850);
+
+  setTimeout(()=>{
+    siteImage1.style.display="none";
+    siteImage3.style.display="none";
+    siteImage4.style.display="none";
+
+    siteImage1.style.transform="translate(-50%,-50%)rotate(0)";
+    siteImage3.style.transform="translate(-50%,-50%)rotate(0)";
+    siteImage4.style.transform="translate(-50%,-50%)rotate(0)";
+
+    siteImage1.style.animationDuration="1.7s";
+    siteImage3.style.animationDuration="1.7s";
+    siteImage4.style.animationDuration="1.7s";
+
+  },1600);
+
+  siteIcon2.style.border = "2px solid lightcoral";
+  siteIcon1.style.border = "none";
+  siteIcon3.style.border = "none";
+  siteIcon4.style.border = "none";
+});
+
+siteIcon3.addEventListener('click',event=>{
+  turnOffPointerEvents();
+
+  siteImage1.style.animationDuration="0s";
+  siteImage2.style.animationDuration="0s";
+  siteImage4.style.animationDuration="0s";
+
+  siteImage1.style.transform="translate(-50%,350%)rotate(30deg)";
+  siteImage2.style.transform="translate(-50%,350%)rotate(30deg)";
+  siteImage4.style.transform="translate(-50%,350%)rotate(30deg)";
+  siteImage1.style.zIndex= '-1';
+  siteImage2.style.zIndex= '-1';
+  siteImage4.style.zIndex= '-1';
+
+  setTimeout(()=>{
+    siteImage3.style.display="block";
+
+    siteImage1.style.zIndex= '2';
+    siteImage2.style.zIndex= '2';
+    siteImage4.style.zIndex= '2';
 
     setTimeout(()=>{
-      siteImage3.style.display="block";
+      turnOnPointerEvents();
+    },1700);
+  },850);
 
-      siteImage1.style.transform="translateY(0)rotate(0)";
-      siteImage2.style.transform="translateY(0)rotate(0)";
-      siteImage4.style.transform="translateY(0)rotate(0)";
+  setTimeout(()=>{
+    siteImage1.style.display="none";
+    siteImage2.style.display="none";
+    siteImage4.style.display="none";
 
-      siteImage1.style.display="none";
-      siteImage2.style.display="none";
-      siteImage4.style.display="none";
-      // siteImage1.style.zIndex= '2';
-      siteImage1.style.zIndex= '2';
-      siteImage2.style.zIndex= '2';
-      siteImage4.style.zIndex= '2';
+    siteImage1.style.transform="translate(-50%,-50%)rotate(0)";
+    siteImage2.style.transform="translate(-50%,-50%)rotate(0)";
+    siteImage4.style.transform="translate(-50%,-50%)rotate(0)";
 
-      setTimeout(()=>{
-        siteIcon1.style.pointerEvents = "auto";
-        siteIcon2.style.pointerEvents = "auto";
-        siteIcon3.style.pointerEvents = "auto";
-        siteIcon4.style.pointerEvents = "auto";
-      },1650)
-    },850);
+    siteImage1.style.animationDuration="1.7s";
+    siteImage2.style.animationDuration="1.7s";
+    siteImage4.style.animationDuration="1.7s";
+  },1600);
 
-    siteIcon3.style.border = "2px solid lightcoral";
-    siteIcon1.style.border = "none";
-    siteIcon2.style.border = "none";
-    siteIcon4.style.border = "none";
-  });
+  siteIcon3.style.border = "2px solid lightcoral";
+  siteIcon1.style.border = "none";
+  siteIcon2.style.border = "none";
+  siteIcon4.style.border = "none";
+});
 
-  siteIcon4.addEventListener('click',event=>{
-    siteIcon1.style.pointerEvents = "none";
-    siteIcon2.style.pointerEvents = "none";
-    siteIcon3.style.pointerEvents = "none";
-    siteIcon4.style.pointerEvents = "none";
+siteIcon4.addEventListener('click',event=>{
+  turnOffPointerEvents();
 
-    siteImage1.style.transform="translateY(1900px)rotate(30deg)";
-    siteImage2.style.transform="translateY(1900px)rotate(30deg)";
-    siteImage3.style.transform="translateY(1900px)rotate(30deg)";
-    siteImage1.style.zIndex= '-1';
-    siteImage2.style.zIndex= '-1';
-    siteImage3.style.zIndex= '-1';
+  siteImage1.style.animationDuration="0s";
+  siteImage2.style.animationDuration="0s";
+  siteImage3.style.animationDuration="0s";
 
+  siteImage1.style.transform="translate(-50%,350%)rotate(30deg)";
+  siteImage2.style.transform="translate(-50%,350%)rotate(30deg)";
+  siteImage3.style.transform="translate(-50%,350%)rotate(30deg)";
+  siteImage1.style.zIndex= '-1';
+  siteImage2.style.zIndex= '-1';
+  siteImage3.style.zIndex= '-1';
+
+
+  setTimeout(()=>{
+
+    siteImage4.style.display="block";
+
+    siteImage1.style.zIndex= '2';
+    siteImage2.style.zIndex= '2';
+    siteImage3.style.zIndex= '2';
     setTimeout(()=>{
-      siteImage4.style.display="block";
+      turnOnPointerEvents();
+    },1700);
+  },850);
 
-      siteImage1.style.transform="translateY(0)rotate(0)";
-      siteImage2.style.transform="translateY(0)rotate(0)";
-      siteImage3.style.transform="translateY(0)rotate(0)";
+  setTimeout(()=>{
+    siteImage1.style.display="none";
+    siteImage2.style.display="none";
+    siteImage3.style.display="none";
 
-      siteImage1.style.display="none";
-      siteImage2.style.display="none";
-      siteImage3.style.display="none";
-      // siteImage1.style.zIndex= '2';
-      siteImage1.style.zIndex= '2';
-      siteImage2.style.zIndex= '2';
-      siteImage3.style.zIndex= '2';
-      setTimeout(()=>{
-        siteIcon1.style.pointerEvents = "auto";
-        siteIcon2.style.pointerEvents = "auto";
-        siteIcon3.style.pointerEvents = "auto";
-        siteIcon4.style.pointerEvents = "auto";
-      },1650)
-    },850);
+    siteImage1.style.transform="translate(-50%,-50%)rotate(0)";
+    siteImage2.style.transform="translate(-50%,-50%)rotate(0)";
+    siteImage3.style.transform="translate(-50%,-50%)rotate(0)";
 
-    siteIcon4.style.border = "2px solid lightcoral";
-    siteIcon1.style.border = "none";
-    siteIcon2.style.border = "none";
-    siteIcon3.style.border = "none";
-  });
+    siteImage1.style.animationDuration="1.7s";
+    siteImage2.style.animationDuration="1.7s";
+    siteImage3.style.animationDuration="1.7s";
+  },1600);
 
-//animate close button
-
-
+  siteIcon4.style.border = "2px solid lightcoral";
+  siteIcon1.style.border = "none";
+  siteIcon2.style.border = "none";
+  siteIcon3.style.border = "none";
+});
 });
